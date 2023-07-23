@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degital Clock</title>
+    <link rel="stylesheet" href="./digital-7.ttf">
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        .div1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+
+        }
+        
+        
+        .span1{
+            /* width: 50%;
+            height: 70vh; */
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            font-family: Digital-7;
+            font-size: 100px;
+            color: red;
+            
+        }
+        .div2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            width: 100%;
+            align-items: stretch;
+        }
+        .span2{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            font-size: 40px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="div1">DEGITAL CLOCK</div>
+
+    <div class="div2">
+        <span class="span1" id="span1">01:12:35</span>
+        <span class="span2">AM</span>
+    </div>
+    <script>
+        const getTime=()=>{
+            let time= new Date();
+            
+            let h=time.getHours();
+            let m=time.getMinutes();
+            let s =time.getSeconds();
+            
+
+            return `${h}:${m}:${s}`
+            
+        }
+        const amPm=()=>{
+            let am_pm=document.getElementById("span2")
+            let time = new Date()
+            let h = time.getHours;
+            if(h>12){
+                amPm.innerHTML="PM"
+            } 
+            else{
+                amPm.innerHTML="AM";
+            }
+        }
+        setInterval(()=>{
+                document.getElementById("span1").innerHTML=getTime();
+                amPm();
+                
+            },1000)
+        
+
+    </script>
+    
+</body>
+</html>
